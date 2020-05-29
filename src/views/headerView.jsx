@@ -8,21 +8,28 @@ const headerView = (payload) => {
     const userName = window.localStorage.getItem('username');
 
     return (
-        <header>
+        <header className='header'>
             <div>Logo</div>
-            <input type='text' value= { searchText } onChange={ (e) => onSearchChange( { searchText: e.currentTarget.value } ) }/>
+            <div className='SearchBoxContainer'>
+                <div className='search_bar'>
+                    <div className='SearchIcon'></div>    
+                    <div className='SearchBox'>  
+                        <input className='inputbox' placeholder="Search for Products, Brands etc." type='search' value= { searchText } onChange={ (e) => onSearchChange( { searchText: e.currentTarget.value } ) }/>
+                    </div>
+                </div>
+            </div>
             <OpenCloseHoc render={ ( props ) => {
                 const { isOpen, onHandleClick, ref } = props;
                 return(
-                    <div className='header__userContainer' ref={ ref } onClick={ onHandleClick }>
-                        <div className='userContainer__info'>
+                    <div className='userContainer-Wrapper' ref={ ref } onClick={ onHandleClick }>
+                        <div className='userContainer'>
                             <img src={ Avatar } alt='Avatar' />
                             <span>Welcome { userName }</span>
                         </div>
                         { ! isOpen ? null :
-                            <ul className='userContainer__dropdown'>
-                                <li className='userContainer__dropdown__item'>Cart</li>
-                                <li className='userContainer__dropdown__item' onClick={ onClickLogout }>Logout</li>
+                            <ul className='dropdown'>
+                                <li className='dropdown__item'>Cart</li>
+                                <li className='dropdown__item' onClick={ onClickLogout }>Logout</li>
                             </ul>
                         }
                     </div>

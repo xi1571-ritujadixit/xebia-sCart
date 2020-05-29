@@ -1,5 +1,6 @@
 import React from 'react'
 import HeaderView from '../views/headerView'
+import ProductListingComponent from '../components/ProductListingComponent'
 
 export default class ProductPage extends React.Component {
 
@@ -12,7 +13,6 @@ export default class ProductPage extends React.Component {
 
     onSearchChange = ( payload  ) => {
         this.setState( { ...this.state, ...payload } );
-        console.log(this.state)
     }
 
     onClickLogout = () => {
@@ -29,6 +29,11 @@ export default class ProductPage extends React.Component {
                     onSearchChange: this.onSearchChange,
                     onClickLogout: this.onClickLogout 
                 }}/>
+                <div>
+                    <ProductListingComponent { ...{
+                        ...this.state
+                    } }/>
+                </div>
             </>
         )
     }
