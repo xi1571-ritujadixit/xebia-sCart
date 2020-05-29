@@ -5,6 +5,7 @@ export const constants = {
     FAILURE: 'failure',
     SERVICE_URLS: {
         LOGIN: `${API_HOST_PATH}/users`,
-        GET_PRODUCT_LIST: `${API_HOST_PATH}/products`
+        GET_PRODUCT_LIST: `${API_HOST_PATH}/products`,
+        GET_FILTERS_LIST: `${API_HOST_PATH}/filters`
     }
 }

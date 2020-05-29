@@ -2,8 +2,7 @@ import React from 'react'
 
 const productListingView = ( payload ) => {
 
-    const { filteredList, isLoading } = payload    
-    console.log(filteredList)
+    const { filteredList, isLoading } = payload
     const listItems = filteredList.map((item) => {
 
         return (

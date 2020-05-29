@@ -1,6 +1,7 @@
 import React from 'react'
 import HeaderView from '../views/headerView'
 import ProductListingComponent from '../components/ProductListingComponent'
+import FilterBarComponent from '../components/FilterBarComponent'
 
 export default class ProductPage extends React.Component {
 
@@ -23,18 +24,19 @@ export default class ProductPage extends React.Component {
 
     render() {
         return (
-            <>
+            <div className='main-container'>
                 <HeaderView { ...{
                     ...this.state,
                     onSearchChange: this.onSearchChange,
                     onClickLogout: this.onClickLogout 
                 }}/>
-                <div>
+                <div className='main-wrapper'>
+                    <FilterBarComponent />
                     <ProductListingComponent { ...{
                         ...this.state
                     } }/>
                 </div>
-            </>
+            </div>
         )
     }
 }
