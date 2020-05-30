@@ -11,7 +11,8 @@ export default class ProductListingComponent extends React.Component {
         this.state = {
             productList: [],
             isLoading: true,
-            message: ''
+            message: '',
+            cartList: new Set()
         }
     }
 
@@ -92,12 +93,13 @@ export default class ProductListingComponent extends React.Component {
         return newList
     }
 
-    addToCart = (payload) => {
+    addToCart = (item) => {
 
-        alert('hi')
-        // console.log(payload)
-        // var cartList = new Set()
-        
+        const  { onSearchChange } = this.props
+        const _state = cloneDeep( this.state );
+        _state.cartList.add(item)        
+        this.setState(_state)
+        onSearchChange( {cartList: _state.cartList} );
     }
 
     render() {

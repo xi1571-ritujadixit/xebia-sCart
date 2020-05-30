@@ -1,8 +1,8 @@
 import React from 'react'
-
+debugger
 const productListingView = ( payload ) => {
 
-    const { filteredList, isLoading, addToCart } = payload
+    const { filteredList, isLoading, addToCart } = payload     
 
     const listItems = filteredList.map((item) => {
 
@@ -11,7 +11,7 @@ const productListingView = ( payload ) => {
                 <div className="ProductCard">
                     <div className="row">
                         <div className="image-container">
-                            <div className="card-img">
+                            <div className="car￼d-img">
                                 <img className="listing-img" src={ item.image } alt={ item.title } />
                             </div>
                         </div>
@@ -23,7 +23,7 @@ const productListingView = ( payload ) => {
                             </div>                            
                         </div>
                         <div className="button-wrapper">
-                            <button className="button" onClick={ () => this.addToCart(item) }>ADD TO BAG</button>
+                            <button type="button" className="button" onClick={() => addToCart(item)}>ADD TO BAG</button>
                         </div>
                     </div>
                 </div>

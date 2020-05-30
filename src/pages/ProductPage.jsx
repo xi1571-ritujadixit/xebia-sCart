@@ -9,7 +9,8 @@ export default class ProductPage extends React.Component {
         super(props)
         this.state = {
             searchText:'',
-            selectedValue:[]
+            selectedValue:[],
+            cartList: new Set()
         }
         console.log(this.state)
     }
@@ -26,7 +27,12 @@ export default class ProductPage extends React.Component {
     }
 
     onClickCartOpen = () => {
-        this.props.history.push('/cart')
+        this.props.history.push( {
+            pathname:'/cart',
+            state: {
+                cartList: this.state.cartList
+            }
+        })
     }
 
     render() {
@@ -45,7 +51,8 @@ export default class ProductPage extends React.Component {
                     }}
                     />
                     <ProductListingComponent { ...{
-                        ...this.state
+                        ...this.state,
+                        onSearchChange: this.onSearchChange
                     } }/>
                 </div>
             </div>
