@@ -122,11 +122,13 @@ export default class FilterBarComponent extends React.Component {
     }
 
     onRemoveValue = ( value ) => {
+        const  { onSearchChange } = this.props
         const _state = cloneDeep( this.state );
         _state.brandText = '';
         _state.selectedValue.splice( value, 1 );
         this.setState( _state );
-
+        onSearchChange( {selectedValue: _state.selectedValue} );
+        console.log(_state)
     };
 
     render() {
