@@ -92,6 +92,14 @@ export default class ProductListingComponent extends React.Component {
         return newList
     }
 
+    addToCart = (payload) => {
+
+        alert('hi')
+        // console.log(payload)
+        // var cartList = new Set()
+        
+    }
+
     render() {
 
         const { isLoading } = this.state
@@ -100,7 +108,8 @@ export default class ProductListingComponent extends React.Component {
             <ProductListingView 
                 { ...{
                     filteredList: this.filterProductList(),
-                    isLoading
+                    isLoading,
+                    addToCart: this.addToCart
                 }}
             />
         )

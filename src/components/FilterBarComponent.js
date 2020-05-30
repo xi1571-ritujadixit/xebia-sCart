@@ -129,7 +129,7 @@ export default class FilterBarComponent extends React.Component {
         this.setState( _state );
         onSearchChange( {selectedValue: _state.selectedValue} );
         console.log(_state)
-    };
+    }
 
     render() {
         const { isLoading, brandText, colorText, selectedValue } = this.state

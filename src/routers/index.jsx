@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import { userHasLogin } from '../hoc/userHasLogin'
 import ProductPage from '../pages/ProductPage'
+import CartPage from '../pages/CartPage'
 
 const routers = () => {
     return (
@@ -17,6 +18,11 @@ const routers = () => {
                     path='/productPage'
                     exact= { true }
                     component= { userHasLogin( ProductPage ) }
+                />
+                <Route
+                    path='/cart'
+                    exact={ true }
+                    component= { CartPage }
                 />
             </Switch>
         </Router>

@@ -4,7 +4,7 @@ import { OpenCloseHoc  } from '../hoc/openCloseHoc';
 
 const headerView = (payload) => {
 
-    const { searchText, onSearchChange, onClickLogout } = payload
+    const { searchText, onSearchChange, onClickLogout, onClickCartOpen } = payload
     const userName = window.localStorage.getItem('username');
 
     return (
@@ -29,7 +29,7 @@ const headerView = (payload) => {
                             </div>
                             { ! isOpen ? null :
                                 <ul className='dropdown'>
-                                    <li className='dropdown__item'>Cart</li>
+                                    <li className='dropdown__item' onClick={ onClickCartOpen }>Cart</li>
                                     <li className='dropdown__item' onClick={ onClickLogout }>Logout</li>
                                 </ul>
                             }

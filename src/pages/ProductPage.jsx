@@ -25,13 +25,18 @@ export default class ProductPage extends React.Component {
         this.props.history.push('/');
     }
 
+    onClickCartOpen = () => {
+        this.props.history.push('/cart')
+    }
+
     render() {
         return (
             <div className='main-container'>
                 <HeaderView { ...{
                     ...this.state,
                     onSearchChange: this.onSearchChange,
-                    onClickLogout: this.onClickLogout 
+                    onClickLogout: this.onClickLogout,
+                    onClickCartOpen: this.onClickCartOpen 
                 }}/>
                 <div className='main-wrapper'>
                     <FilterBarComponent { ...{

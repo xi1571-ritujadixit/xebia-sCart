@@ -2,11 +2,12 @@ import React from 'react'
 
 const productListingView = ( payload ) => {
 
-    const { filteredList, isLoading } = payload
+    const { filteredList, isLoading, addToCart } = payload
+
     const listItems = filteredList.map((item) => {
 
         return (
-            <div className='ProductCard-Wrapper'>
+            <div className='ProductCard-Wrapper' key={item.id}>
                 <div className="ProductCard">
                     <div className="row">
                         <div className="image-container">
@@ -21,10 +22,9 @@ const productListingView = ( payload ) => {
                                 <h2>{ item.price.final_price }</h2>
                             </div>                            
                         </div>
-                        <div className='button-wrapper'>
-                            <button className='button'>ADD TO BAG</button>
-                        </div>                     
-                        
+                        <div className="button-wrapper">
+                            <button className="button" onClick={ () => this.addToCart(item) }>ADD TO BAG</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,6 +36,7 @@ const productListingView = ( payload ) => {
             {
                 isLoading ? <div className='ProductCard-Wrapper'>Loading...</div> : listItems
             }
+            
         </div>
     )
 }
