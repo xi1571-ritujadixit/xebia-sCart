@@ -3,7 +3,7 @@ import ProductListingView from '../views/productListingView'
 import { constants } from '../modules/constants'
 import { cloneDeep } from 'lodash';
 import { fetch } from '../modules/httpServices';
-
+debugger
 export default class ProductListingComponent extends React.Component {
 
     constructor(props) {
@@ -41,7 +41,7 @@ export default class ProductListingComponent extends React.Component {
 
     filterProductList = () => {
 
-        const { searchText } = this.props
+        const { searchText, selectedValue } = this.props
         const { productList } = this.state
         
         let currentList = []
@@ -62,7 +62,34 @@ export default class ProductListingComponent extends React.Component {
             filteredList = productList
         }
 
+        if(Array.isArray(selectedValue) && selectedValue.length) {
+            filteredList = this.filterList(filteredList)
+            return filteredList
+        }
+        
         return filteredList
+    }
+
+    filterList = (filteredList) => {
+
+        const { selectedValue } = this.props
+        var newList = new Set()
+
+        for(var j=0; j<selectedValue.length; j++) {
+            for(var i=0; i<filteredList.length; i++) {
+                if(selectedValue[j] === filteredList[i].brand) {
+                    console.log(filteredList[i])
+                    newList.add(filteredList[i])
+                }
+                else if(selectedValue[j] === filteredList[i].colour.title){
+                    newList.add(filteredList[i])
+                }
+            }
+        }
+        newList = Array.from(newList)
+        console.log(newList)
+
+        return newList
     }
 
     render() {

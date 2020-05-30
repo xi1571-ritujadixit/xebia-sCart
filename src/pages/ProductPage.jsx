@@ -8,12 +8,15 @@ export default class ProductPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            searchText:''
+            searchText:'',
+            selectedValue:[]
         }
+        console.log(this.state)
     }
 
     onSearchChange = ( payload  ) => {
         this.setState( { ...this.state, ...payload } );
+        console.log(this.state)
     }
 
     onClickLogout = () => {
@@ -31,7 +34,11 @@ export default class ProductPage extends React.Component {
                     onClickLogout: this.onClickLogout 
                 }}/>
                 <div className='main-wrapper'>
-                    <FilterBarComponent />
+                    <FilterBarComponent { ...{
+                        ...this.state,
+                        onSearchChange: this.onSearchChange
+                    }}
+                    />
                     <ProductListingComponent { ...{
                         ...this.state
                     } }/>
