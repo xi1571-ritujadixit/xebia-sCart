@@ -4,13 +4,13 @@ import { OpenCloseHoc  } from '../hoc/openCloseHoc';
 
 const headerView = (payload) => {
 
-    const { searchText, onSearchChange, onClickLogout, onClickCartOpen } = payload
+    const { searchText, onSearchChange, onClickLogout, onClickCartOpen, onClickLogo } = payload
     const userName = window.localStorage.getItem('username');
 
     return (
         <header className='header'>
             <div className='header-inner-wrapper'>
-                <div>Logo</div>
+                <div onClick={ onClickLogo }>Logo</div>
                 <div className='SearchBoxContainer'>
                     <div className='search_bar'>
                         <div className='SearchIcon'></div>    

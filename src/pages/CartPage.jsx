@@ -13,14 +13,51 @@ export default class CartPage extends React.Component {
         }
     }
 
-    render() {
-        // const{ cartList } = this.props.location.state
-        // const CartList = Array.from(cartList)
+    onSearchChange = ( payload  ) => {
+        this.setState( { ...this.state, ...payload } );
         console.log(this.state)
+    }
+
+    onClickLogout = () => {
+        window.localStorage.removeItem('username');
+        window.localStorage.removeItem('Token');
+        this.props.history.push('/');
+    }
+
+    onClickCartOpen = () => {
+        this.props.history.push( {
+            pathname:'/cart',
+            state: {
+                cartList: this.state.cartList
+            }
+        })
+    }
+
+    onClickLogo = () => {
+        this.props.history.push({
+            pathname:'/productPage',
+            state: {
+                ...this.state
+            }
+        })
+    }
+
+    render() {
+
         return (
             <div className='cart-wrapper'>
-                <HeaderView />
-                <CartListingComponent />
+                <HeaderView { ...{
+                    ...this.state,
+                    onSearchChange: this.onSearchChange,
+                    onClickLogout: this.onClickLogout,
+                    onClickCartOpen: this.onClickCartOpen,
+                    onClickLogo: this.onClickLogo 
+                }}
+                />
+                <CartListingComponent {...{
+                    ...this.state
+                }}
+                />
             </div>
         )
     }

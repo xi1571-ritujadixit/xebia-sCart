@@ -30,9 +30,13 @@ export default class ProductPage extends React.Component {
         this.props.history.push( {
             pathname:'/cart',
             state: {
-                cartList: this.state.cartList
+                ...this.state
             }
         })
+    }
+
+    onClickLogo = () => {
+        this.props.history.push('/productPage')
     }
 
     render() {
@@ -42,7 +46,8 @@ export default class ProductPage extends React.Component {
                     ...this.state,
                     onSearchChange: this.onSearchChange,
                     onClickLogout: this.onClickLogout,
-                    onClickCartOpen: this.onClickCartOpen 
+                    onClickCartOpen: this.onClickCartOpen,
+                    onClickLogo: this.onClickLogo 
                 }}/>
                 <div className='main-wrapper'>
                     <FilterBarComponent { ...{

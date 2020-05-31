@@ -3,7 +3,7 @@ import ProductListingView from '../views/productListingView'
 import { constants } from '../modules/constants'
 import { cloneDeep } from 'lodash';
 import { fetch } from '../modules/httpServices';
-debugger
+
 export default class ProductListingComponent extends React.Component {
 
     constructor(props) {
