@@ -2,7 +2,7 @@ import React from 'react'
 
 const cartListingView = ( payload ) => {
 
-    const { CartList } = payload
+    const { CartList, grandTotal, onSearchChange, updateCartMap } = payload
 
     const listItems = CartList.map((item) => {
 
@@ -23,7 +23,14 @@ const cartListingView = ( payload ) => {
                             </div>                            
                         </div>
                         <div className="quantity-wrapper">
-                            
+                            Quantity : 
+                            <select onChange = { (e) => {onSearchChange( { quantity:e.currentTarget.value, id: item.id } ); updateCartMap();}}>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -34,6 +41,8 @@ const cartListingView = ( payload ) => {
     return (
         <div>
             {listItems}
+            <h2>Payment Details</h2>
+            <span>Grand Total: </span> {grandTotal}
         </div>
     )
 
