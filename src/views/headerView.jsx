@@ -10,7 +10,7 @@ const headerView = (payload) => {
     return (
         <header className='header'>
             <div className='header-inner-wrapper'>
-                <div onClick={ onClickLogo }>Logo</div>
+                <div className='right' onClick={ onClickLogo }><a className='logo'></a></div>
                 <div className='SearchBoxContainer'>
                     <div className='search_bar'>
                         <div className='SearchIcon'></div>    

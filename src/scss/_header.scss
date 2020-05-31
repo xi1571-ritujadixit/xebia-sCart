@@ -30,6 +30,8 @@
     display: inline-block;
     line-height: 40px;
     vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .search_bar {
@@ -90,6 +92,7 @@
     position: relative;
     display: flex;
     margin-left: auto;
+    
     &:after {
         position: absolute;
         content: '';
@@ -135,4 +138,18 @@
     position: relative;
     display: flex;
     align-items: center;
+    margin-left: auto;
+    margin-right: 3%;
+}
+
+.logo {
+    background: url(../images/sunflower.svg) top no-repeat;
+    display: block;
+    height: 50px;
+    overflow: hidden;
+    width: 165px;    
+}
+
+.right {
+    margin-right: auto;
 }
