@@ -23,6 +23,8 @@
     font-weight: 600;
     font-size: 15px;
     border-bottom: solid 1px #ebebeb;
+    color: #3f414d;
+    // float: left !important;
 }
 
 .search-input {
@@ -36,7 +38,6 @@
 
 .filter-items {
     overflow: auto;
-    height: 156px;
     margin-bottom: 20px;
     padding-left: 0;
     &__item {
@@ -80,4 +81,66 @@
         }
         color: #413a3a;
     }
+}
+
+.slide-filter {
+    max-height: none;
+    // overflow: hidden;
+    transition: max-height 0.3s;
+    margin-bottom: 0;
+    overflow: auto;
+    display: block;
+    background-color: #FFFFFF;
+    margin: 10px 0 16px 0;
+    max-height: 400px;
+}
+
+.control-box {
+    border: none;
+    padding-left: 5px;
+    color: #3f414d;
+    display: flex;
+    align-items: center;
+}
+
+.check-box {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    margin: 4px 0 0;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0;
+    box-shadow: none !important;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    font: inherit;
+    touch-action: manipulation;
+}
+
+.control--checkbox {
+    padding-bottom: 2px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 0;
+    font-size: 14px !important;
+    font-weight: normal;
+    line-height: normal;
+
+    span {
+        vertical-align: middle;
+    }
+}
+
+.control__indicator {
+    border-radius: 3px;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 1.4px solid #bfbfbf;
 }
