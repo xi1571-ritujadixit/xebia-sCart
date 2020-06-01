@@ -7,12 +7,12 @@ export default class ProductPage extends React.Component {
 
     constructor(props) {
         super(props)
-        const{ CartList } = this.props.location.state
+        // const{ CartList } = this.props.location.state
         // const cartList = Array.from(CartList)
         this.state = {
             searchText:'',
             selectedValue:[],
-            cartList: CartList
+            cartList: new Set()
         }
         console.log(this.state)
     }
