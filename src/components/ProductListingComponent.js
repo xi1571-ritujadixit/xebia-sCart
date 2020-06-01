@@ -87,9 +87,9 @@ export default class ProductListingComponent extends React.Component {
                 }
             }
         }
+
         newList = Array.from(newList)
         console.log(newList)
-
         return newList
     }
 
