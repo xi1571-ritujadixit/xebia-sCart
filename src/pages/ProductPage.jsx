@@ -7,13 +7,24 @@ export default class ProductPage extends React.Component {
 
     constructor(props) {
         super(props)
+        const{ CartList } = this.props.location.state
+        // const cartList = Array.from(CartList)
         this.state = {
             searchText:'',
             selectedValue:[],
-            cartList: new Set()
+            cartList: CartList
         }
         console.log(this.state)
     }
+
+    // getCartList = () => {
+    //     const{ CartList } = this.props.location.state
+    //     var cartList = Array.from(CartList)
+    //     var cartList1 = this.state.cartList.concat(cartList)
+
+
+    //     return cartList1
+    // }
 
     onSearchChange = ( payload  ) => {
         this.setState( { ...this.state, ...payload } );
