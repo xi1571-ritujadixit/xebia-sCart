@@ -69,18 +69,15 @@ export default class CartListingComponent extends React.Component {
         var get_values = cartMap.values();
         
         for(let i=0; i<CartList.length; i++) {
-            if(cartMap[CartList[i].id] !== "") {
-                grandTotal1 += (cartMap.get(CartList[i])-1)*CartList[i].price.final_price
-                console.log("If works")
+            if(cartMap.get(CartList[i].id) !=null ) {
+                grandTotal1 += (cartMap.get(CartList[i].id)-1)*CartList[i].price.final_price
+            //console.log("If works")
+                console.log(grandTotal1)
             }
-            // else {
-            //     grandTotal1 += (CartList[CartList.length-1].price.final_price)*(cartMap.get(CartList[CartList.length-1])-1)
-            //     console.log("else works")
-            // }
+            else{
+            //console.log("else works")
+            }
             console.log(grandTotal1)
-            // console.log(cartMap.get(CartList[i].id))
-            // console.log(get_keys)
-            // grandTotal1 += (cartMap.get(CartList[i].id)-1)*CartList[i].price.final_price
         }
         // var i=0
         // for(var i=1;i<get_values.length;i++) {
