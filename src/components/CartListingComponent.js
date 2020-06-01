@@ -46,14 +46,16 @@ export default class CartListingComponent extends React.Component {
     }
 
     onSearchChange = ( payload ) => {
-        this.setState( { ...this.state, ...payload} );
+        this.setState( { ...this.state, ...payload} )
+        console.log(payload.id,payload.quantity)
+        this.updateCartMap(payload.id,payload.quantity)
         console.log(this.state)
         // this.addQuantityPrice()
         // this.updateCartMap()
     }
 
-    updateCartMap = () => {
-        const { cartMap, id , quantity } = this.state
+    updateCartMap = (id,quantity) => {
+        const {cartMap} = this.state
         cartMap.set(id, quantity)
         
         this.setState({cartMap:cartMap})
