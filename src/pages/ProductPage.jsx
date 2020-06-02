@@ -12,7 +12,8 @@ export default class ProductPage extends React.Component {
         this.state = {
             searchText:'',
             selectedValue:[],
-            cartList: new Set()
+            cartList: new Set(),
+            priceList:[]
         }
         console.log(this.state)
     }

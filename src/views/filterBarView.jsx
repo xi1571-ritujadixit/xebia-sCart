@@ -2,7 +2,7 @@ import React from 'react'
 
 const filterBarView = ( payload ) => {
 
-    const { isLoading, onSearchChange, brandText, filterBrandList, colorText, filterColorList, onValueClick, selectedValue, onRemoveValue } = payload
+    const { isLoading, onSearchChange, brandText, filterBrandList, colorText, filterColorList, onValueClick, selectedValue, onRemoveValue, handlePriceClick } = payload
 
     const view = (
         <>
@@ -46,38 +46,33 @@ const filterBarView = ( payload ) => {
                 <div className='filter-wrap'>PRICE</div>
                 <div className="slide-filter">
                     <div className="control-box">
-                        <input className="checkbox" type="checkbox" id="chk_Rs. 0 - Rs. 499_0-499" value="on" />
-                        <label className="control--checkbox" for="chk_Rs. 0 - Rs. 499_0-499">
+                        <input className="checkbox" type="checkbox" id="0" value="on" onChange= { (e) => handlePriceClick(e.currentTarget.id, e.currentTarget.value) }/>
+                        <label className="control--checkbox" for="0">
                             <span>Rs. 0 - Rs. 499</span>
-                            {/* <div className="control__indicator"></div> */}
                         </label>
                     </div>
                     <div className="control-box">
-                        <input className="checkbox" type="checkbox" id="chk_Rs. 0 - Rs. 499_0-499" value="on" />
-                        <label className="control--checkbox" for="chk_Rs. 0 - Rs. 499_0-499">
-                            <span>Rs. 0 - Rs. 499</span>
-                            {/* <div class="control__indicator"></div> */}
-                        </label>
-                    </div>
-                    <div className="control-box">
-                        <input className="checkbox" type="checkbox" id="chk_Rs. 0 - Rs. 499_0-499" value="on" />
-                        <label className="control--checkbox" for="chk_Rs. 0 - Rs. 499_0-499">
+                        <input className="checkbox" type="checkbox" id="500" value="on" onChange= { (e) => handlePriceClick(e.currentTarget.id, e.currentTarget.value) }/>
+                        <label className="control--checkbox" for="500">
                             <span>Rs. 500 - Rs. 999</span>
-                            {/* <div class="control__indicator"></div> */}
                         </label>
                     </div>
                     <div className="control-box">
-                        <input className="checkbox" type="checkbox" id="chk_Rs. 0 - Rs. 499_0-499" value="on" />
-                        <label className="control--checkbox" for="chk_Rs. 0 - Rs. 499_0-499">
+                        <input className="checkbox" type="checkbox" id="1000" value="on" onChange= { (e) => handlePriceClick(e.currentTarget.id, e.currentTarget.value) }/>
+                        <label className="control--checkbox" for="1000">
                             <span>Rs. 1000 - Rs. 1999</span>
-                            {/* <div class="control__indicator"></div> */}
                         </label>
                     </div>
                     <div className="control-box">
-                        <input className="checkbox" type="checkbox" id="chk_Rs. 0 - Rs. 499_0-499" value="on" />
-                        <label className="control--checkbox" for="chk_Rs. 0 - Rs. 499_0-499">
+                        <input className="checkbox" type="checkbox" id="2000" value="on" onChange= { (e) => handlePriceClick(e.currentTarget.id, e.currentTarget.value) }/>
+                        <label className="control--checkbox" for="2000">
+                            <span>Rs. 2000 - Rs. 3999</span>
+                        </label>
+                    </div>
+                    <div className="control-box">
+                        <input className="checkbox" type="checkbox" id="4000" value="on" onChange= { (e) => handlePriceClick(e.currentTarget.id, e.currentTarget.value) }/>
+                        <label className="control--checkbox" for="4000">
                             <span>Rs. 4000 & Above</span>
-                            {/* <div class="control__indicator"></div> */}
                         </label>
                     </div>
                 </div>

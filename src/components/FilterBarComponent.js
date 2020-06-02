@@ -14,7 +14,8 @@ export default class FilterBarComponent extends React.Component {
             filterList: [],
             brandText: '',
             selectedValue: [],
-            colorText: ''
+            colorText: '',
+            priceList: []
         }
     }
 
@@ -24,6 +25,7 @@ export default class FilterBarComponent extends React.Component {
 
     onSearchChange = ( payload ) => {
         this.setState( { ...this.state, ...payload} );
+        console.log(this.state)
     }
 
     getFiltersList = () => {
@@ -131,6 +133,28 @@ export default class FilterBarComponent extends React.Component {
         console.log(_state)
     }
 
+    handlePriceClick = (value, state) => {
+        const  { onSearchChange } = this.props
+        const _state = cloneDeep( this.state );
+        if(!_state.priceList.includes(value)) {
+            if(state==="on") {
+                _state.priceList.push(value)
+            }
+        }
+        else {
+            //_state.priceList.splice(value,1)
+            for(let i=0; i<_state.priceList.length;i++){
+                if(_state.priceList[i]==value){
+                    _state.priceList[i] = null
+                }
+            }
+            //console.log("hhgf")
+        }
+        this.setState(_state)
+        console.log(this.state.priceList)
+        onSearchChange( {priceList: _state.priceList} );
+    }
+
     render() {
         const { isLoading, brandText, colorText, selectedValue } = this.state
         return (
@@ -144,7 +168,8 @@ export default class FilterBarComponent extends React.Component {
                     filterColorList: this.filterColorList(),
                     onValueClick: this.onValueClick,
                     selectedValue,
-                    onRemoveValue: this.onRemoveValue
+                    onRemoveValue: this.onRemoveValue,
+                    handlePriceClick: this.handlePriceClick
                 }}
             />
         )

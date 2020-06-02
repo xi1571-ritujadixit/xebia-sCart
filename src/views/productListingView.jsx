@@ -1,5 +1,5 @@
 import React from 'react'
-debugger
+
 const productListingView = ( payload ) => {
 
     const { filteredList, isLoading, addToCart } = payload     

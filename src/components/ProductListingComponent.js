@@ -42,7 +42,7 @@ export default class ProductListingComponent extends React.Component {
 
     filterProductList = () => {
 
-        const { searchText, selectedValue } = this.props
+        const { searchText, selectedValue, priceList } = this.props
         const { productList } = this.state
         
         let currentList = []
@@ -63,9 +63,9 @@ export default class ProductListingComponent extends React.Component {
             filteredList = productList
         }
 
-        if(Array.isArray(selectedValue) && selectedValue.length) {
+        if((Array.isArray(selectedValue) && selectedValue.length) || (Array.isArray(priceList) && priceList.length)) {
             filteredList = this.filterList(filteredList)
-            return filteredList
+            // return filteredList
         }
         
         return filteredList
@@ -73,7 +73,9 @@ export default class ProductListingComponent extends React.Component {
 
     filterList = (filteredList) => {
 
-        const { selectedValue } = this.props
+        const { selectedValue, priceList } = this.props
+        const { productList } = this.state
+
         var newList = new Set()
 
         for(var j=0; j<selectedValue.length; j++) {
@@ -87,10 +89,59 @@ export default class ProductListingComponent extends React.Component {
                 }
             }
         }
-
         newList = Array.from(newList)
+
+        if(!(Array.isArray(newList) && newList.length)) {
+            newList = productList
+        }
+
+        var finalList = []
+        if(Array.isArray(priceList) && priceList.length) {
+
+            for(let i=0;i<priceList.length;i++){
+                if(priceList[i]==null) {
+                    finalList = productList
+                }
+                else {
+                    for(let j=0;j<newList.length;j++){
+                        let temp_price=newList[j].price.final_price
+                        if(priceList[i]==="0"){
+                            if(temp_price>="0" && temp_price<="499"){
+                                finalList.push(newList[j])
+                            }                        
+                        }
+                        else if(priceList[i]==="500"){
+                            if(temp_price>="500 "&& temp_price<="999"){
+                                finalList.push(newList[j])
+                            }
+                        }
+                        else if(priceList[i]==="1000"){
+                            if(temp_price>="1000" && temp_price<="1999"){
+                                finalList.push(newList[j])
+                            }
+                        }
+                        else if(priceList[i]==="2000"){
+                            if(temp_price>="2000" && temp_price<="3999"){
+                                finalList.push(newList[j])
+                            }
+                        }
+                        else{
+                            if(temp_price>="4000"){
+                                finalList.push(newList[j])
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+
+        else {
+            finalList = newList
+        }
+        
         console.log(newList)
-        return newList
+        return finalList
     }
 
     addToCart = (item) => {
